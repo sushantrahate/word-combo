@@ -1,6 +1,6 @@
 /*
 * Find Combination of 2 words
-* Author Sushant Rahate
+* Author: Sushant Rahate
 */
 window.onload = function () {
     let word1 = document.getElementById('word1');
@@ -8,11 +8,12 @@ window.onload = function () {
     let loadingSpinner = document.getElementById('loadingSpinner');
     let showWords = document.getElementById('showWords');
     let showNames = document.getElementById('showNames');
-    // ************************************************************
-    // ** Find all possible word combinations of 2 words **
-    // ************************************************************
 
-    // 2nd function running inside 1st
+    // ********************************************************************************
+    // ** Find all possible word combinations of 2 words **
+    // ********************************************************************************
+
+    // 2nd running inside 1st
     // Some recursive Magic funtion that genrate all combos of word
     tree = (leafs) => {
         let branches = [];
@@ -26,7 +27,7 @@ window.onload = function () {
         return branches;
     };
 
-    // 1st function
+    // 1st
     // Pass value to the recursive fution to get all combination
     allpossibleWordsbyWord = (val) => {
         return tree(val.split('')).map(function (str) {
@@ -36,7 +37,7 @@ window.onload = function () {
         })
     }
 
-    // 3rd function
+    // 3rd
     //Gives all combination of 2 words
     allComboListof2Words = (val1Array, val2Array) => {
         let allComboListArray = [];
@@ -59,39 +60,36 @@ window.onload = function () {
         return valueArray.filter(value => (value.length > 2));
     }
 
-    // 0th Funtion
+    // 0th
     //get called by button 
     findAllCombo = () => {
         validWordLength();
         showWords.innerHTML = '';
         showNames.innerHTML = '';
 
-        // 2. Find all Possible combination words by word 1
+        // Find all Possible combination words by word 1
         let word1Array = allpossibleWordsbyWord(word1.value.toLowerCase());
 
-        // 2. Find all Possible combination words by word 2
+        // Find all Possible combination words by word 2
         let word2Array = allpossibleWordsbyWord(word2.value.toLowerCase());
 
-        // 3. Limit array list to min 3 character for all word1 array
+        // Limit array list to min 3 character for all word1 array
         let filter1array = filterBellow3Words(word1Array);
-        // 3. Limit array list to min 3 character for all word2 array
+        // Limit array list to min 3 character for all word2 array
         let filter2array = filterBellow3Words(word2Array);
 
-        // 4. Find all combination of 2 words and assign to showWords div
+        // Find all combination of 2 words and assign to showWords div
         showWords.innerHTML = allComboListof2Words(filter1array, filter2array);
     }
 
-    // ************************************************************
+    // ********************************************************************************
     // ** Find Name Combinations by 2 words **
-    // ************************************************************
+    // ********************************************************************************
 
     allPossibleNamesbyWord = (word) => {
         let nameList = [];
         for (s = 2; s <= word.length; s++) {
-            // console.log('================')
             for (i = 0, j = s; i <= word.length - 1 + s, j <= word.length - 1; j++ , i++) {
-                // console.log(i, j + 1);
-                // console.log(word.substring(i,j+1));
                 nameList.push(word.substring(i, j + 1));
             }
         }
@@ -115,9 +113,9 @@ window.onload = function () {
         });
     }
 
-    // ************************************************************
+    // ********************************************************************************
     // ** Common Methods **
-    // ************************************************************
+    // ********************************************************************************
 
     // validation for more than 2 char and intial hide showWords and show loadingSpinner
     validWordLength = () => {
