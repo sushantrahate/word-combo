@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/custom.css">
+    <title>2 Word Combos</title>
+    <meta name="robots" content="noindex, nofollow, nosnippet">
+    <meta name="googlebot" content="noindex">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Find Combination of 2 words</h1>
+        <div class="input-group">
+            <input type="text" class="form-control" id="word1" placeholder="Word 1">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> + </span>
+            </div>
+            <input type="text" class="form-control" id="word2" placeholder="Word 2">
+        </div>
+        <button type="button" class="btn btn-info" onclick="CoupleNamesCombo()">Couple Name Combinations</button>
+        <button type="button" class="btn btn-info" onclick="findAllCombo()">All Word Combinations</button>
+        <button type="button" class="btn btn-secondary" onclick="clearData()">Clear</button>
+
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">All Possible Combinations</h4>
+                <div id="loadingSpinner" class="spinner" hidden></div>
+                <div class="content" id="showWords"></div>
+                <div class="content" id="showNames"></div>
+            </div>
+        </div>
+        <footer id="footer">
+            Made by Sushant Rahate
+        </footer>
+    </div>
+    <script src="./js/findCombo.js"></script>
+</body>
+
+</html>
