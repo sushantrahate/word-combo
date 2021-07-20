@@ -2,6 +2,7 @@
 * Find Combination of 2 words
 * Author: Sushant Rahate
 */
+
 window.onload = function () {
     let word1 = document.getElementById('word1');
     let word2 = document.getElementById('word2');
@@ -89,7 +90,7 @@ window.onload = function () {
     allPossibleNamesbyWord = (word) => {
         let nameList = [];
         for (s = 2; s <= word.length; s++) {
-            for (i = 0, j = s; i <= word.length - 1 + s, j <= word.length - 1; j++ , i++) {
+            for (i = 0, j = s; i <= word.length - 1 + s, j <= word.length - 1; j++, i++) {
                 nameList.push(word.substring(i, j + 1));
             }
         }
@@ -97,7 +98,7 @@ window.onload = function () {
     }
 
     // To find Couple Name Combo, get called by button
-    CoupleNamesCombo = () => {
+    LinearNamesCombo = () => {
         validWordLength();
         showWords.innerHTML = '';
         showNames.innerHTML = '';
@@ -149,4 +150,4 @@ window.onload = function () {
         word1.value = '';
         word2.value = '';
     }
-}();  
+}();
